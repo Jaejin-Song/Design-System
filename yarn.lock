@@ -1050,6 +1050,7 @@ __metadata:
     vite: "npm:^5.0.11"
     vue: "npm:^3.4.15"
     vue-tsc: "npm:^1.8.27"
+    vue-types: "npm:^5.1.1"
   languageName: unknown
   linkType: soft
 
@@ -1864,6 +1865,13 @@ __metadata:
   version: 3.0.3
   resolution: "is-path-inside@npm:3.0.3"
   checksum: 10c0/cf7d4ac35fb96bab6a1d2c3598fe5ebb29aafb52c0aaa482b5a3ed9d8ba3edc11631e3ec2637660c44b3ce0e61a08d54946e8af30dec0b60a7c27296c68ffd05
+  languageName: node
+  linkType: hard
+
+"is-plain-object@npm:5.0.0":
+  version: 5.0.0
+  resolution: "is-plain-object@npm:5.0.0"
+  checksum: 10c0/893e42bad832aae3511c71fd61c0bf61aa3a6d853061c62a307261842727d0d25f761ce9379f7ba7226d6179db2a3157efa918e7fe26360f3bf0842d9f28942c
   languageName: node
   linkType: hard
 
@@ -3004,6 +3012,20 @@ __metadata:
   bin:
     vue-tsc: bin/vue-tsc.js
   checksum: 10c0/6e6ba37eb7a0c8b9cc613225729c74edf8bd0632d265e62aca28b1969b5615b9dbe2de03aefb8aed2e26fdbd4b93f134785c8ab0095f92c2469192e2db5d09fd
+  languageName: node
+  linkType: hard
+
+"vue-types@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "vue-types@npm:5.1.1"
+  dependencies:
+    is-plain-object: "npm:5.0.0"
+  peerDependencies:
+    vue: ^2.0.0 || ^3.0.0
+  peerDependenciesMeta:
+    vue:
+      optional: true
+  checksum: 10c0/52be98ec8c5c6f5016a503db7a00757b5ea1cb5020d6e2b61a56cc1a7bbd05d65e86223a248a99be4a53941cb8d03afe73ae5943affe102c23327129be5dfee8
   languageName: node
   linkType: hard
 

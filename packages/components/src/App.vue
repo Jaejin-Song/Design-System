@@ -1,8 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+import { QCheckbox } from './components/checkbox';
+
+const checked1 = ref(false);
+</script>
 
 <template>
   <main>
-    <div>test</div>
+    <QCheckbox v-model="checked1" :true-value="'checked'" />
+    {{ checked1 }}
   </main>
 </template>
 
