@@ -1,7 +1,7 @@
 import { defineComponent, h, computed, toRaw, PropType } from 'vue';
 
 export function useFormInject(formAttrs = {}) {
-  return (child, action, className) => {
+  return (child, action: string, className?: string) => {
     child[action](
       h('input', {
         class: 'hidden' + (className || ''),
@@ -42,8 +42,11 @@ const bgNode = h(
 
 const props = () => ({
   modelValue: {
-    type: [Boolean, Array],
+    validator: () => true,
     required: true,
+  } as unknown as {
+    type: PropType<any>;
+    required: true;
   },
   trueValue: {
     default: true as const,

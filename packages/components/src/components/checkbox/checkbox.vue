@@ -1,0 +1,83 @@
+<script setup lang="ts">
+import { computed, toRaw } from 'vue';
+import type { Props } from './type';
+
+const props = withDefaults(defineProps<Props>(), {
+  trueValue: true,
+  falseValue: false,
+});
+const emit = defineEmits<{
+  (e: 'update:modelValue', modelValue: any): void;
+}>();
+
+const modelIsArray = computed(() => Array.isArray(props.modelValue));
+
+const isTrue = computed(() =>
+  modelIsArray.value === true
+    ? false
+    : toRaw(props.modelValue) === toRaw(props.trueValue),
+);
+
+const isFalse = computed(() =>
+  modelIsArray.value === true
+    ? false
+    : toRaw(props.modelValue) === toRaw(props.falseValue),
+);
+
+const isIndeterminate = computed(
+  () => isTrue.value === false && isFalse.value === false,
+);
+
+const classes = computed(() => {
+  return 'r-checkbox';
+});
+
+const innerClass = computed(() => {
+  const state =
+    isTrue.value === true
+      ? 'truthy'
+      : isFalse.value === true
+        ? 'falsy'
+        : 'indet';
+
+  return `r-checkbox__inner r-checkbox__inner--${state}`;
+});
+
+const onClick = (e: Event) => {
+  if (e !== void 0) {
+    e.stopPropagation();
+  }
+
+  if (props.disable !== true) {
+    emit('update:modelValue', getNextValue());
+  }
+};
+
+const getNextValue = () => {
+  if (isTrue.value === true) {
+    return props.falseValue;
+  } else if (isFalse.value === true) {
+    return props.trueValue;
+  }
+
+  return props.indeterminateValue;
+};
+</script>
+<template>
+  <div :class="classes" @click="onClick">
+    <div :class="innerClass">
+      <!-- input은 상속받아서 쓰는걸로 수정해야함 -->
+      <input class="r-checkbox__native" type="text" />
+      <div class="r-checkbox__bg">
+        <svg class="r-checkbox__svg" viewBox="0 0 24 24">
+          <path
+            class="r-checkbox__truthy"
+            fill="none"
+            d="M4 12.6111L8.92308 17.5L20 6.5"></path>
+          <path class="r-checkbox__indet" d="M4,14H20V10H4"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</template>
+<style lang="scss" scoped></style>

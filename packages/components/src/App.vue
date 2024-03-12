@@ -1,14 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { QCheckbox } from './components/checkbox';
+import { QCheckbox, RCheckbox } from './components/checkbox';
 
 const checked1 = ref(false);
+const checked2 = ref(false);
 </script>
 
 <template>
   <main>
-    <QCheckbox v-model="checked1" :true-value="'checked'" />
+    <QCheckbox v-model="checked1" />
     {{ checked1 }}
+
+    <RCheckbox v-model="checked2" />
+    {{ checked2 }}
   </main>
 </template>
 

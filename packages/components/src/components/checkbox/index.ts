@@ -1,3 +1,5 @@
 import QCheckbox from './q-copy';
 
-export { QCheckbox };
+import RCheckbox from './checkbox.vue';
+
+export { QCheckbox, RCheckbox };

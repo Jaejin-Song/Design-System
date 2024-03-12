@@ -1,0 +1,58 @@
+.r-checkbox {
+  &__inner {
+    position: relative;
+    width: 40px;
+    height: 40px;
+
+    &--truthy,
+    &--indet {
+      color: blue;
+      .r-checkbox__bg {
+        background: currentColor;
+      }
+    }
+
+    &--truthy {
+      path {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    &--indet {
+      path {
+        transform: rotate(0) scale(1);
+      }
+    }
+  }
+
+  &__native {
+    display: none;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    border: 2px solid currentColor;
+    border-radius: 2px;
+  }
+
+  &__svg {
+    color: #fff;
+  }
+
+  &__truthy {
+    stroke: currentColor;
+    stroke-width: 3.12px;
+    stroke-dashoffset: 29.78334;
+    stroke-dasharray: 29.78334;
+  }
+
+  &__indet {
+    fill: currentColor;
+    transform-origin: 50% 50%;
+    transform: rotate(-280deg) scale(0);
+  }
+}
