@@ -68,4 +68,7 @@ $checkbox-transition: 0.22s cubic-bezier(0, 0, 0.2, 1) 0ms;
     transition: background $checkbox-transition;
     -webkit-print-color-adjust: exact;
   }
+
+  &__label {
+  }
 }

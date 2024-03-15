@@ -1,4 +1,12 @@
 .r-checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
   &__inner {
     position: relative;
     width: 40px;
@@ -54,5 +62,9 @@
     fill: currentColor;
     transform-origin: 50% 50%;
     transform: rotate(-280deg) scale(0);
+  }
+
+  &__label {
+    font-weight: bold;
   }
 }

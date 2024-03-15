@@ -28,9 +28,9 @@ const isIndeterminate = computed(
   () => isTrue.value === false && isFalse.value === false,
 );
 
-const classes = computed(() => {
-  return 'r-checkbox';
-});
+const classes = computed(
+  () => 'r-checkbox' + (props.leftLabel === true ? ' r-checkbox--reverse' : ''),
+);
 
 const innerClass = computed(() => {
   const state =
@@ -73,10 +73,13 @@ const getNextValue = () => {
           <path
             class="r-checkbox__truthy"
             fill="none"
-            d="M4 12.6111L8.92308 17.5L20 6.5"></path>
-          <path class="r-checkbox__indet" d="M4,14H20V10H4"></path>
+            d="M4 12.6111L8.92308 17.5L20 6.5" />
+          <path class="r-checkbox__indet" d="M4,14H20V10H4" />
         </svg>
       </div>
+    </div>
+    <div v-if="label" class="r-checkbox__label">
+      {{ label }}
     </div>
   </div>
 </template>

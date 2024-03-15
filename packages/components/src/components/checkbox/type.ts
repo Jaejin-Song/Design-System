@@ -6,6 +6,7 @@ export interface Props {
   indeterminateValue?: any;
 
   label?: string;
+  leftLabel?: boolean;
 
   disable?: boolean;
 }
