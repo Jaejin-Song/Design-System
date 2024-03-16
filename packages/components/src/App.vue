@@ -26,6 +26,8 @@ const onUpdateCheckState = (_value: any) => {
     checkedList.value = [];
   }
 };
+
+const customModel = ref<'yes' | 'no'>('no');
 </script>
 
 <template>
@@ -76,6 +78,15 @@ const onUpdateCheckState = (_value: any) => {
         :value="opt"
         :label="opt" />
     </div>
+    <br />
+
+    <!-- Custom model values -->
+    <r-checkbox
+      v-model="customModel"
+      true-value="yes"
+      false-value="no"
+      label="yes for true, no for false" />
+    <div>{{ `Custom model value : ${customModel}` }}</div>
   </main>
 </template>
 <style lang="scss" scoped>
