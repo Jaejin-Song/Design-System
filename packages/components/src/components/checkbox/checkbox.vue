@@ -5,6 +5,7 @@ import type { Props } from './type';
 const props = withDefaults(defineProps<Props>(), {
   trueValue: true,
   falseValue: false,
+  indeterminateValue: null,
 });
 const emit = defineEmits<{
   (e: 'update:modelValue', modelValue: any): void;
@@ -12,15 +13,23 @@ const emit = defineEmits<{
 
 const modelIsArray = computed(() => Array.isArray(props.modelValue));
 
+const index = computed(() => {
+  const value = toRaw(props.value);
+
+  return modelIsArray.value === true
+    ? props.modelValue.findIndex((opt: any) => toRaw(opt) === value)
+    : -1;
+});
+
 const isTrue = computed(() =>
   modelIsArray.value === true
-    ? false
+    ? index.value > -1
     : toRaw(props.modelValue) === toRaw(props.trueValue),
 );
 
 const isFalse = computed(() =>
   modelIsArray.value === true
-    ? false
+    ? index.value === -1
     : toRaw(props.modelValue) === toRaw(props.falseValue),
 );
 
@@ -54,13 +63,27 @@ const onClick = (e: Event) => {
 };
 
 const getNextValue = () => {
+  if (modelIsArray.value === true) {
+    if (isTrue.value === true) {
+      const copy = [...props.modelValue] as Array<any>;
+      copy.splice(index.value, 1);
+      return copy;
+    }
+
+    return props.modelValue.concat([props.value]);
+  }
+
   if (isTrue.value === true) {
     return props.falseValue;
   } else if (isFalse.value === true) {
     return props.trueValue;
   }
 
-  return props.indeterminateValue;
+  return getIndetNextValue();
+};
+
+const getIndetNextValue = () => {
+  return props.trueValue;
 };
 </script>
 <template>
