@@ -11,4 +11,9 @@ export interface Props {
   leftLabel?: boolean;
 
   disabled?: boolean;
+  tabIndex?: number;
+}
+
+export interface Emtis {
+  (e: 'update:modelValue', modelValue: any): void;
 }

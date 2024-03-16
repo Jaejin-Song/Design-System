@@ -1,15 +1,19 @@
 <script setup lang="ts">
-import { computed, toRaw } from 'vue';
-import type { Props } from './type';
+import { HTMLAttributes, computed, toRaw } from 'vue';
+import type { Props, Emtis } from './type';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const props = withDefaults(defineProps<Props>(), {
   trueValue: true,
   falseValue: false,
   indeterminateValue: null,
+
+  tabIndex: 0,
 });
-const emit = defineEmits<{
-  (e: 'update:modelValue', modelValue: any): void;
-}>();
+const emit = defineEmits<Emtis>();
 
 const modelIsArray = computed(() => Array.isArray(props.modelValue));
 
@@ -88,12 +92,33 @@ const getNextValue = () => {
 const getIndetNextValue = () => {
   return props.trueValue;
 };
+
+const tabIndex = computed(() =>
+  props.disabled === true ? -1 : props.tabIndex,
+);
+
+const attributes = computed(() => {
+  const attrs: HTMLAttributes = {
+    tabindex: tabIndex.value,
+    role: 'checkbox',
+    'aria-label': props.label,
+    'aria-checked':
+      isIndeterminate.value === true
+        ? 'mixed'
+        : isTrue.value === true
+          ? 'true'
+          : 'false',
+    'aria-disabled': props.disabled === true ? 'true' : 'false',
+  };
+
+  return attrs;
+});
 </script>
 <template>
-  <div :class="classes" @click="onClick">
+  <div :class="classes" v-bind="attributes" @click="onClick">
     <div :class="innerClass">
       <!-- input은 상속받아서 쓰는걸로 수정해야함 -->
-      <input class="r-checkbox__native" type="text" />
+      <input class="r-checkbox__native" type="checkbox" />
       <div class="r-checkbox__bg">
         <svg class="r-checkbox__svg" viewBox="0 0 24 24">
           <path
