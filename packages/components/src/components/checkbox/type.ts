@@ -10,5 +10,5 @@ export interface Props {
   label?: string;
   leftLabel?: boolean;
 
-  disable?: boolean;
+  disabled?: boolean;
 }

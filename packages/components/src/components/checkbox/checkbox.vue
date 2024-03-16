@@ -38,7 +38,10 @@ const isIndeterminate = computed(
 );
 
 const classes = computed(
-  () => 'r-checkbox' + (props.leftLabel === true ? ' r-checkbox--reverse' : ''),
+  () =>
+    'r-checkbox' +
+    (props.leftLabel === true ? ' r-checkbox--reverse' : '') +
+    (props.disabled === true ? ` r-checkbox--disabled` : ''),
 );
 
 const innerClass = computed(() => {
@@ -57,7 +60,7 @@ const onClick = (e: Event) => {
     e.stopPropagation();
   }
 
-  if (props.disable !== true) {
+  if (props.disabled !== true) {
     emit('update:modelValue', getNextValue());
   }
 };
