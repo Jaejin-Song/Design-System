@@ -3,6 +3,14 @@
   align-items: center;
   cursor: pointer;
 
+  &:focus-visible {
+    outline: none;
+
+    .r-checkbox__bg {
+      outline: rgb(220, 79, 255) auto 1px;
+    }
+  }
+
   &--reverse {
     flex-direction: row-reverse;
   }

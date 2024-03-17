@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HTMLAttributes, computed, toRaw } from 'vue';
+import { HTMLAttributes, InputHTMLAttributes, computed, toRaw } from 'vue';
 import type { Props, Emtis } from './type';
 
 defineOptions({
@@ -113,12 +113,40 @@ const attributes = computed(() => {
 
   return attrs;
 });
+
+const formAttrs = computed(() => {
+  const attrs: InputHTMLAttributes = {
+    // type: 'checkbox',
+    // checked: isTrue.value,
+    // value: modelIsArray.value === true ? props.value : props.trueValue,
+  };
+
+  return attrs;
+});
+
+const onKeyup = (e: KeyboardEvent) => {
+  if (e.code === 'Enter' || e.code === 'Space') {
+    onClick(e);
+  }
+};
+
+const onKeyDown = (e: KeyboardEvent) => {
+  if (e.code === 'Enter' || e.code === 'Space') {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+};
 </script>
 <template>
-  <div :class="classes" v-bind="attributes" @click="onClick">
-    <div :class="innerClass">
+  <div
+    :class="classes"
+    v-bind="attributes"
+    @click="onClick"
+    @keyup="onKeyup"
+    @keydown="onKeyDown">
+    <div :class="innerClass" aria-hidden="true">
       <!-- input은 상속받아서 쓰는걸로 수정해야함 -->
-      <input class="r-checkbox__native" type="checkbox" />
+      <input class="r-checkbox__native" v-bind="formAttrs" />
       <div class="r-checkbox__bg">
         <svg class="r-checkbox__svg" viewBox="0 0 24 24">
           <path
