@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue';
 import { RCheckbox } from './components/checkbox';
 
-const checked = ref(false);
+const checked = ref(true);
 const indet = ref();
 const arrayModel = ref<any[]>([]);
 
@@ -96,6 +96,12 @@ const notChecked = ref(false);
     <div>
       <r-checkbox v-model="isChecked" disabled label="checked" />
       <r-checkbox v-model="notChecked" disabled label="not checked" />
+    </div>
+    <br />
+
+    <!-- Form Attrs -->
+    <div>
+      <r-checkbox v-model="isChecked" label="checkbox" name="checkbox" />
     </div>
     <br />
   </main>

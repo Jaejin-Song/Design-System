@@ -1,5 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export interface Props {
+
+export interface FormProps {
+  name?: string;
+}
+
+export interface Props extends FormProps {
   modelValue: any;
   value?: any;
 

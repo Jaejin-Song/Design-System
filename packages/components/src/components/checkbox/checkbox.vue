@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HTMLAttributes, InputHTMLAttributes, computed, toRaw } from 'vue';
+import { HTMLAttributes, computed, toRaw } from 'vue';
 import type { Props, Emtis } from './type';
 
 defineOptions({
@@ -115,10 +115,14 @@ const attributes = computed(() => {
 });
 
 const formAttrs = computed(() => {
-  const attrs: InputHTMLAttributes = {
-    // type: 'checkbox',
-    // checked: isTrue.value,
-    // value: modelIsArray.value === true ? props.value : props.trueValue,
+  const attrs = {
+    type: 'checkbox',
+    // dom property
+    '.checked': isTrue.value,
+    // dom attribute
+    '^checked': isTrue.value === true ? true : void 0,
+    name: props.name,
+    value: modelIsArray.value === true ? props.value : props.trueValue,
   };
 
   return attrs;
