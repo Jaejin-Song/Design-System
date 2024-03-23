@@ -23,6 +23,9 @@
   "references": [
     {
       "path": "packages/components"
+    },
+    {
+      "path": "site"
     }
   ],
   "exclude": ["packages/**/dist/**"]
