@@ -1,9 +1,3 @@
-import RCheckbox from './checkbox.vue';
+import Checkbox from './checkbox.vue';
 
-export { RCheckbox };
-
-declare module 'vue' {
-  export interface GlobalComponents {
-    RCheckbox: typeof RCheckbox;
-  }
-}
+export default Checkbox;

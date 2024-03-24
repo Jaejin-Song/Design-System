@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import Basic from '../examples/Checkbox/Basic.vue';
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <Basic />
   </main>
 </template>

@@ -18,7 +18,9 @@
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true
   },
   "references": [
     {
@@ -28,5 +30,5 @@
       "path": "site"
     }
   ],
-  "exclude": ["packages/**/dist/**"]
+  "exclude": ["packages/**/dist/**", "site/**/dist/**"]
 }

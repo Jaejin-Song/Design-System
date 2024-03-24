@@ -1,1 +1,1 @@
-export { RCheckbox } from './checkbox';
+export { default as Checkbox } from './checkbox';
