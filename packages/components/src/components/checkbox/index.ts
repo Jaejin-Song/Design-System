@@ -1,3 +1,3 @@
-import RCheckbox from './checkbox.vue';
+import Checkbox from './checkbox.vue';
 
-export { RCheckbox };
+export default Checkbox;

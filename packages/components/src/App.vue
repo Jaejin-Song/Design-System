@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { RCheckbox } from './components/checkbox';
 
 const checked = ref(true);
 const indet = ref();
