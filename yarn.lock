@@ -3176,7 +3176,7 @@ __metadata:
     npm-run-all2: "npm:^6.1.2"
     typescript: "npm:~5.4.0"
     vite: "npm:^5.1.6"
-    vue: "npm:^3.4.21"
+    vue: "npm:^3.4.15"
     vue-router: "npm:^4.3.0"
     vue-tsc: "npm:^2.0.6"
   languageName: unknown
@@ -3645,7 +3645,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.4.15, vue@npm:^3.4.21":
+"vue@npm:^3.4.15":
   version: 3.4.21
   resolution: "vue@npm:3.4.21"
   dependencies:
