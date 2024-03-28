@@ -10,11 +10,11 @@ const routes: RouteRecordRaw[] = [
       ...Object.keys(componentList).map((key) => {
         const parts = key.substring(1, key.length - 10).split('/');
         const len = parts.length;
-        const componentName = parts[len - 1].toLowerCase();
-        const path = `/vue-components/${componentName}`;
+        const componentName = parts[len - 1];
+        const path = `/vue-components/${componentName.toLowerCase()}`;
 
         const acc: RouteRecordRaw = {
-          component: () => import(key),
+          component: () => import(`../examples/${componentName}/index.vue`),
           path,
           name: componentName,
         };
