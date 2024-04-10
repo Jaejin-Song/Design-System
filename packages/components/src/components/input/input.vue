@@ -169,11 +169,14 @@ defineExpose({
 <template>
   <label>
     <span>{{ label }}</span>
-    <span class="n-input-wrapper">
+    <span class="n-input__wrapper">
+      <span class="prefix">
+        <slot name="prefix" />
+      </span>
       <input
         v-focus
         ref="inputRef"
-        class="n-input"
+        class="n-input__native"
         v-bind="inputAttrs"
         :value="modelValue"
         :placeholder="placeholder"
@@ -190,12 +193,14 @@ defineExpose({
 </template>
 <style lang="scss" scoped>
 .n-input {
-  border-width: 1px;
-  border-style: solid;
-  border-color: #d9d9d9;
-  border-radius: 6px;
-  background: #ffffff;
-  margin: 0;
-  padding: 4px 11px;
+  &__wrapper {
+    background: #ffffff;
+    padding: 4px 8px;
+    border: 1px solid #d9d9d9;
+  }
+
+  &__native {
+    border-width: 0;
+  }
 }
 </style>

@@ -27,7 +27,7 @@ const onUpdate = (val: any) => {
   </n-input>
   <n-input v-model="password" @update:model-value="onUpdate" :type="'search'">
     <template #suffix>
-      <span role="presentation">search icon</span>
+      <span role="presentation">icon</span>
     </template>
   </n-input>
 </template>

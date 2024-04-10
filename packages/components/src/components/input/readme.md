@@ -18,6 +18,7 @@ mask 구현
 
 validation
 
-prefix, suffix
-
 type - password, number 구현
+
+slots
+prefix, suffix 구현

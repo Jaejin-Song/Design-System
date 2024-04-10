@@ -11,11 +11,11 @@ import Debounce from './Debounce.vue';
 <template>
   <div class="demo-box">
     <Basic />
-    <!-- <Events />
+    <Events />
     <Methods />
     <WithLabel />
     <State />
-    <InputType /> -->
+    <InputType />
     <Mask />
     <Debounce />
   </div>
