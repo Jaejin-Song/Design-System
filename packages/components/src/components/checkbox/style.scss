@@ -1,4 +1,4 @@
-.r-checkbox {
+.n-checkbox {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
@@ -6,7 +6,7 @@
   &:focus-visible {
     outline: none;
 
-    .r-checkbox__bg {
+    .n-checkbox__bg {
       outline: rgb(220, 79, 255) auto 1px;
     }
   }
@@ -27,7 +27,7 @@
     &--truthy,
     &--indet {
       color: blue;
-      .r-checkbox__bg {
+      .n-checkbox__bg {
         background: currentColor;
       }
     }

@@ -6,8 +6,8 @@ const notChecked = ref(false);
 </script>
 <template>
   <div>
-    <r-checkbox v-model="isChecked" disabled label="checked" />
-    <r-checkbox v-model="notChecked" disabled label="not checked" />
+    <n-checkbox v-model="isChecked" disabled label="checked" />
+    <n-checkbox v-model="notChecked" disabled label="not checked" />
   </div>
 </template>
 <style lang="scss" scoped></style>

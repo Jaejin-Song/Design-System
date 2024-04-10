@@ -37,43 +37,43 @@ const notChecked = ref(false);
     {{ checked }}
 
     <!-- Basic -->
-    <r-checkbox v-model="checked" />
+    <n-checkbox v-model="checked" />
     <br />
 
     <!-- Label -->
     <div>
-      <r-checkbox v-model="checked" label="label for checkbox" />
+      <n-checkbox v-model="checked" label="label for checkbox" />
     </div>
     <div>
-      <r-checkbox v-model="checked" label="label for checkbox" left-label />
+      <n-checkbox v-model="checked" label="label for checkbox" left-label />
     </div>
     <br />
 
     <!-- Indeterminate -->
     <div>
-      <r-checkbox v-model="indet" label="checkbox" />
+      <n-checkbox v-model="indet" label="checkbox" />
     </div>
     <div>{{ `The Model Data : ${indet}` }}</div>
     <br />
 
     <!-- Array Model -->
     <div>
-      <r-checkbox v-model="arrayModel" value="john" label="John" />
-      <r-checkbox v-model="arrayModel" value="jack" label="Jack" />
-      <r-checkbox v-model="arrayModel" value="mike" label="Mike" />
+      <n-checkbox v-model="arrayModel" value="john" label="John" />
+      <n-checkbox v-model="arrayModel" value="jack" label="Jack" />
+      <n-checkbox v-model="arrayModel" value="mike" label="Mike" />
     </div>
     <div>{{ `The Model Data : ${arrayModel}` }}</div>
     <br />
 
     <!-- Check All -->
     <div>
-      <r-checkbox
+      <n-checkbox
         :model-value="checkState"
         @update:model-value="onUpdateCheckState"
         label="check state" />
     </div>
     <div>
-      <r-checkbox
+      <n-checkbox
         v-for="opt of options"
         :key="opt"
         v-model="checkedList"
@@ -83,7 +83,7 @@ const notChecked = ref(false);
     <br />
 
     <!-- Custom model values -->
-    <r-checkbox
+    <n-checkbox
       v-model="customModel"
       true-value="yes"
       false-value="no"
@@ -93,14 +93,14 @@ const notChecked = ref(false);
 
     <!-- Disabled -->
     <div>
-      <r-checkbox v-model="isChecked" disabled label="checked" />
-      <r-checkbox v-model="notChecked" disabled label="not checked" />
+      <n-checkbox v-model="isChecked" disabled label="checked" />
+      <n-checkbox v-model="notChecked" disabled label="not checked" />
     </div>
     <br />
 
     <!-- Form Attrs -->
     <div>
-      <r-checkbox v-model="isChecked" label="checkbox" name="checkbox" />
+      <n-checkbox v-model="isChecked" label="checkbox" name="checkbox" />
     </div>
     <br />
   </main>

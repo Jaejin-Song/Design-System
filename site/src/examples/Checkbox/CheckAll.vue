@@ -24,13 +24,13 @@ const onUpdateCheckState = (_value: any) => {
 </script>
 <template>
   <div>
-    <r-checkbox
+    <n-checkbox
       :model-value="checkState"
       @update:model-value="onUpdateCheckState"
       label="check state" />
   </div>
   <div>
-    <r-checkbox
+    <n-checkbox
       v-for="opt of options"
       :key="opt"
       v-model="checkedList"

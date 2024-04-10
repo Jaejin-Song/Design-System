@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const checked = ref(true);
+const value = ref('');
 </script>
 <template>
-  <n-checkbox v-model="checked" />
+  <n-input v-model="value" mask="###-###"></n-input>
+  <div>
+    {{ `value: ${value}` }}
+  </div>
 </template>
 <style lang="scss" scoped></style>

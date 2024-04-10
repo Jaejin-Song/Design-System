@@ -17,6 +17,18 @@
   "plugins": ["@typescript-eslint", "vue", "vuejs-accessibility"],
   "rules": {
     "@typescript-eslint/no-explicit-any": "warn",
-    "vue/multi-word-component-names": "off"
+    "vue/multi-word-component-names": "off",
+    "vuejs-accessibility/label-has-for": [
+      "error",
+      {
+        "required": {
+          "every": ["nesting"]
+        }
+      }
+    ],
+    "vuejs-accessibility/no-autofocus": ["error", { "ignoreNonDOM": true }]
+  },
+  "globals": {
+    "NodeJS": true
   }
 }

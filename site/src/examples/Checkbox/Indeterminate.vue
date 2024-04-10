@@ -5,7 +5,7 @@ const indet = ref(null);
 </script>
 <template>
   <div>
-    <r-checkbox v-model="indet" label="checkbox" />
+    <n-checkbox v-model="indet" label="checkbox" />
   </div>
   <div>{{ `The Model Data : ${indet}` }}</div>
 </template>

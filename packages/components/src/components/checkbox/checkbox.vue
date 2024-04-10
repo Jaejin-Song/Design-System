@@ -43,9 +43,9 @@ const isIndeterminate = computed(
 
 const classes = computed(
   () =>
-    'r-checkbox' +
-    (props.leftLabel === true ? ' r-checkbox--reverse' : '') +
-    (props.disabled === true ? ` r-checkbox--disabled` : ''),
+    'n-checkbox' +
+    (props.leftLabel === true ? ' n-checkbox--reverse' : '') +
+    (props.disabled === true ? ` n-checkbox--disabled` : ''),
 );
 
 const innerClass = computed(() => {
@@ -56,7 +56,7 @@ const innerClass = computed(() => {
         ? 'falsy'
         : 'indet';
 
-  return `r-checkbox__inner r-checkbox__inner--${state}`;
+  return `n-checkbox__inner n-checkbox__inner--${state}`;
 });
 
 const onClick = (e: Event) => {
@@ -150,18 +150,18 @@ const onKeyDown = (e: KeyboardEvent) => {
     @keydown="onKeyDown">
     <div :class="innerClass" aria-hidden="true">
       <!-- input은 상속받아서 쓰는걸로 수정해야함 -->
-      <input class="r-checkbox__native" v-bind="formAttrs" />
-      <div class="r-checkbox__bg">
-        <svg class="r-checkbox__svg" viewBox="0 0 24 24">
+      <input class="n-checkbox__native" v-bind="formAttrs" />
+      <div class="n-checkbox__bg">
+        <svg class="n-checkbox__svg" viewBox="0 0 24 24">
           <path
-            class="r-checkbox__truthy"
+            class="n-checkbox__truthy"
             fill="none"
             d="M4 12.6111L8.92308 17.5L20 6.5" />
-          <path class="r-checkbox__indet" d="M4,14H20V10H4" />
+          <path class="n-checkbox__indet" d="M4,14H20V10H4" />
         </svg>
       </div>
     </div>
-    <div v-if="label" class="r-checkbox__label">
+    <div v-if="label" class="n-checkbox__label">
       {{ label }}
     </div>
   </div>
