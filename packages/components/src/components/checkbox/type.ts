@@ -5,7 +5,11 @@ export interface FormProps {
 }
 
 export interface Props extends FormProps {
+  /**
+   * The label of the button
+   */
   modelValue: any;
+  // value props
   value?: any;
 
   trueValue?: any;
