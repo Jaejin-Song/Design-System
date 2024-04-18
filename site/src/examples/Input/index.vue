@@ -9,7 +9,7 @@ import Mask from './Mask.vue';
 import Debounce from './Debounce.vue';
 </script>
 <template>
-  <div class="demo-box">
+  <main class="component-page">
     <Basic />
     <Events />
     <Methods />
@@ -18,10 +18,10 @@ import Debounce from './Debounce.vue';
     <InputType />
     <Mask />
     <Debounce />
-  </div>
+  </main>
 </template>
 <style lang="scss" scoped>
-.demo-box {
+.component-page {
   display: flex;
   flex-direction: column;
   gap: 8px;

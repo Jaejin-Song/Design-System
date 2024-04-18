@@ -8,14 +8,12 @@ import Disabled from './Disabled.vue';
 import FormAttrs from './FormAttrs.vue';
 </script>
 <template>
-  <div>
-    <basic />
-    <checkbox-label />
-    <array-model />
-    <check-all />
-    <indeterminate />
-    <disabled />
-    <form-attrs />
-  </div>
+  <basic />
+  <checkbox-label />
+  <array-model />
+  <check-all />
+  <indeterminate />
+  <disabled />
+  <form-attrs />
 </template>
 <style lang="scss" scoped></style>

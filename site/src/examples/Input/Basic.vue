@@ -1,3 +1,8 @@
+---
+title: Hello
+slug: home
+---
+
 <script setup lang="ts">
 import { ref } from 'vue';
 
