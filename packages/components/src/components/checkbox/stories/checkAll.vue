@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 
-import Checkbox from '../checkbox.vue';
-
 const options = ['john', 'jack', 'mike'];
 const checkedList = ref<string[]>(['john']);
 
@@ -26,13 +24,13 @@ const onUpdateCheckState = (_value: any) => {
 </script>
 <template>
   <div>
-    <checkbox
+    <n-checkbox
       :model-value="checkState"
       @update:model-value="onUpdateCheckState"
       label="check state" />
   </div>
   <div>
-    <checkbox
+    <n-checkbox
       v-for="opt of options"
       :key="opt"
       v-model="checkedList"
