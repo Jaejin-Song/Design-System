@@ -6,7 +6,7 @@ const value2 = ref('');
 </script>
 <template>
   <div>
-    <n-input v-model="value" mask="###-###"></n-input>
+    <n-input v-model="value" mask="###-###" hint="mask: ###-###"></n-input>
     <div>
       {{ `value: ${value}` }}
     </div>

@@ -21,7 +21,10 @@ export interface Props {
   disabled?: boolean;
   readonly?: boolean;
 
+  /** milliseconds */
   debounce?: number;
+
+  hint?: string;
 }
 export interface Emits {
   (e: 'update:modelValue', value: string | number): void;
@@ -169,26 +172,40 @@ defineExpose({
 <template>
   <label>
     <span>{{ label }}</span>
-    <span class="n-input__wrapper">
-      <span class="prefix">
-        <slot name="prefix" />
-      </span>
-      <input
-        v-focus
-        ref="inputRef"
-        class="n-input__native"
-        v-bind="inputAttrs"
-        :value="modelValue"
-        :placeholder="placeholder"
-        @input="onInput"
-        @change="onChange"
-        @focus="onFocus"
-        @blur="onBlur"
-        @keydown="onMaskedKeydown" />
-      <span class="suffix">
-        <slot name="suffix" />
-      </span>
-    </span>
+    <div class="n-input__wrapper">
+      <div v-if="$slots.prepend" class="prepend">
+        <slot name="prepend" />
+      </div>
+
+      <div class="n-input__input-container">
+        <span v-if="$slots.prefix" class="prefix">
+          <slot name="prefix" />
+        </span>
+        <input
+          v-focus
+          ref="inputRef"
+          class="n-input__native"
+          v-bind="inputAttrs"
+          :value="modelValue"
+          :placeholder="placeholder"
+          @input="onInput"
+          @change="onChange"
+          @focus="onFocus"
+          @blur="onBlur"
+          @keydown="onMaskedKeydown" />
+        <span v-if="$slots.suffix" class="suffix">
+          <slot name="suffix" />
+        </span>
+      </div>
+
+      <div v-if="$slots.append" class="append">
+        <slot name="append" />
+      </div>
+    </div>
+
+    <div v-if="hint" class="n-input__bottom">
+      {{ hint }}
+    </div>
   </label>
 </template>
 <style lang="scss" scoped>
@@ -197,10 +214,17 @@ defineExpose({
     background: #ffffff;
     padding: 4px 8px;
     border: 1px solid #d9d9d9;
+    display: flex;
   }
 
   &__native {
     border-width: 0;
+    flex: 1;
+  }
+
+  &__input-container {
+    display: flex;
+    flex: 1;
   }
 }
 </style>

@@ -16,6 +16,12 @@ const meta = {
   args: {
     modelValue: undefined,
   },
+  decorators: [
+    (story) => ({
+      components: { story },
+      template: '<div style="margin: 3em; width: 300px"><story /></div>',
+    }),
+  ],
 } satisfies Meta<typeof Input>;
 
 export default meta;

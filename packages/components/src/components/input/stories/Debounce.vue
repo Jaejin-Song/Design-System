@@ -4,7 +4,7 @@ import { ref } from 'vue';
 const value = ref('');
 </script>
 <template>
-  <n-input v-model="value" :debounce="500" />
+  <n-input v-model="value" :debounce="500" hint="debounce: 500" />
   <div>
     {{ `value: ${value}` }}
   </div>
