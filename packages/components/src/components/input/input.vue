@@ -113,7 +113,6 @@ const onChange = (e: Event) => {
 
 const inputAttrs = computed(() => {
   const attrs = {
-    tabindex: 0,
     type: props.type,
     // 'data-autofocus': props.autofocus === true || void 0,
     // rows: props.type === 'textarea' ? 6 : void 0,
