@@ -26,11 +26,13 @@ test();
     type="number"
     label="type number"
     hint="type: number" />
+
+  <n-input v-model="password" type="password" hint="type: password"> </n-input>
   <n-input
     v-model="password"
     @update:model-value="onUpdate"
     :type="isPassword ? 'password' : 'text'"
-    hint="type: password">
+    hint="type: password with toggle">
     <template #append>
       <span @click="isPassword = !isPassword" role="presentation">
         <img
@@ -40,6 +42,7 @@ test();
       </span>
     </template>
   </n-input>
+
   <n-input
     v-model="password"
     @update:model-value="onUpdate"
