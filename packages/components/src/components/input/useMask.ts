@@ -1,4 +1,4 @@
-import { Ref, ref, watch } from 'vue';
+import { Ref, nextTick, ref, watch } from 'vue';
 import { shouldIgnoreKey } from '../../utils/key-composition';
 import type { InputType } from './type';
 
@@ -243,19 +243,40 @@ export const useMask = (
       masked = props.fillMask !== false ? fillWithMask(preMasked) : preMasked,
       changed = innerValue.value !== masked;
 
-    console.log(
-      'rawVal, unmasked, preMasked, masked :>> ',
-      rawVal,
-      unmasked,
-      preMasked,
-      masked,
-    );
+    console.log('rawVal :>> ', rawVal);
+    console.log('unmasked :>> ', unmasked);
+    console.log('preMasked :>> ', preMasked);
+    console.log('masked :>> ', masked);
 
     inp.value !== masked && (inp.value = masked);
 
     changed === true && (innerValue.value = masked);
 
-    // document.activeElement
+    document.activeElement === inp &&
+      nextTick(() => {
+        if (masked === maskReplaced) {
+          inp.setSelectionRange(0, 0, 'forward');
+
+          return;
+        }
+
+        // if (changed === true) {
+        //   const cursor = Math.max(
+        //     0,
+        //     maskMarked.indexOf(MARKER),
+        //     Math.min(preMasked.length, end) - 1,
+        //   );
+        //   moveCursor.right(inp, cursor);
+        // } else {
+        //   // 값을 임의로 넣어주기 때문에 커서가 맨 뒤로 움직임
+        //   // 처음의 위치로 커서를 다시 옮겨줘야됨
+        //   const cursor = end - 1;
+        //   moveCursor.right(inp, cursor);
+        // }
+
+        const cursor = end - 1;
+        moveCursor.right(inp, cursor);
+      });
 
     const val = props.unmaskedValue === true ? unmaskValue(masked) : masked;
 
@@ -501,6 +522,7 @@ export const useMask = (
   }
 
   return {
+    innerValue,
     hasMask,
     updateMaskValue,
     onMaskedKeydown,

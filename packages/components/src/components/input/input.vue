@@ -44,7 +44,7 @@ let // for debounce
 
 const inputRef = ref<HTMLInputElement>();
 
-const { hasMask, updateMaskValue, onMaskedKeydown } = useMask(
+const { innerValue, hasMask, updateMaskValue, onMaskedKeydown } = useMask(
   props,
   emitValue,
   inputRef,
@@ -146,6 +146,7 @@ const blur = () => {
 
 const select = () => inputRef.value !== void 0 && inputRef.value.select();
 
+// 필요하면 오픈함
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const nativeEl = () => inputRef.value;
 
@@ -167,6 +168,10 @@ defineExpose({
   blur,
   select,
 });
+
+const inputValue = computed(() =>
+  !props.mask ? props.modelValue : innerValue.value,
+);
 </script>
 <template>
   <label>
@@ -185,7 +190,7 @@ defineExpose({
           ref="inputRef"
           class="n-input__native"
           v-bind="inputAttrs"
-          :value="modelValue"
+          :value="inputValue"
           :placeholder="placeholder"
           @input="onInput"
           @change="onChange"

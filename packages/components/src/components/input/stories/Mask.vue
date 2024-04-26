@@ -3,6 +3,7 @@ import { ref } from 'vue';
 
 const value = ref('');
 const value2 = ref('');
+const value3 = ref('');
 </script>
 <template>
   <div>
@@ -11,10 +12,27 @@ const value2 = ref('');
       {{ `value: ${value}` }}
     </div>
   </div>
+
   <div>
-    <n-input v-model="value2" mask="###-###" fill-mask></n-input>
+    <n-input
+      v-model="value2"
+      mask="###-###"
+      hint="mask: ###-###, fill-mask"
+      fill-mask></n-input>
     <div>
-      {{ `value: ${value}` }}
+      {{ `value: ${value2}` }}
+    </div>
+  </div>
+
+  <div>
+    <n-input
+      v-model="value3"
+      mask="###-###"
+      hint="mask: ###-###, fill-mask, unmaskedValue"
+      fill-mask
+      unmaskedValue></n-input>
+    <div>
+      {{ `value: ${value3}` }}
     </div>
   </div>
 </template>

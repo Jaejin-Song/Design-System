@@ -9,7 +9,7 @@ const password = ref('');
 const isPassword = ref(true);
 
 const onUpdate = (val: any) => {
-  console.log('val :>> ', val, typeof val);
+  console.log('val :>> ', val, typeof val, typeof numberVal.value);
 };
 
 const test = () => {
@@ -19,10 +19,10 @@ const test = () => {
 test();
 </script>
 <template>
-  <n-input v-model="textVal" @update:model-value="onUpdate" label="type text" />
+  <n-input v-model="textVal" @change="onUpdate" label="type text" />
   <n-input
     v-model.number="numberVal"
-    @update:model-value="onUpdate"
+    @change="onUpdate"
     type="number"
     label="type number"
     hint="type: number" />
@@ -30,7 +30,7 @@ test();
   <n-input v-model="password" type="password" hint="type: password"> </n-input>
   <n-input
     v-model="password"
-    @update:model-value="onUpdate"
+    @change="onUpdate"
     :type="isPassword ? 'password' : 'text'"
     hint="type: password with toggle">
     <template #append>
@@ -45,9 +45,8 @@ test();
 
   <n-input
     v-model="password"
-    @update:model-value="onUpdate"
+    @change="onUpdate"
     :type="'search'"
-    prefix=""
     hint="type: search">
     <template #append>
       <span role="presentation">
